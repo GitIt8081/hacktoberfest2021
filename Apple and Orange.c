@@ -1,4 +1,8 @@
-    #include <assert.h>
+/** Problem statement:
+Sam's house has an apple tree and an orange tree that yield an abundance of fruit. Using the information given below, determine the number of apples and oranges that land on Sam's house.
+Given the value of d for m apples and n oranges, determine how many apples and oranges will fall on Sam's house (i.e., in the inclusive range [s,t])?
+**/
+#include <assert.h>
 #include <limits.h>
 #include <math.h>
 #include <stdbool.h>
@@ -13,23 +17,15 @@ char** split_string(char*);
 
 // Complete the countApplesAndOranges function below.
 void countApplesAndOranges(int s, int t, int a, int b, int apples_count, int* apples, int oranges_count, int* oranges) {
-    int a1=0,o=0,i,j;
-    /*printf("%d %d\n",s,t);
-    printf("%d %d\n",a,b);
-    printf("%d %d\n",apples_count,oranges_count);
-    printf("%d %d %d\n",apples[0],apples[1],apples[2]);
-    printf("%d %d \n",oranges[0],oranges[1]);*/
-    for(i=0;i<sizeof(apples);i++) 
-    {
-    if(a+(apples[i])>=s && a+(apples[i])<=t)
-    a1++;
-    }
-    for(j=0;j<sizeof(oranges);j++)
-    {
-    if(b+(oranges[j])>=s && b+oranges[j]<=t)
-    o++;
-    }
-    printf("%d\n%d",a1,o);
+int count1=0,count2=0;
+for(int i=0;i<apples_count;i++)
+if(*(apples+i)>0 && ((*(apples+i)+a)>=s && (*(apples+i)+a)<=t))
+count1++;
+for(int i=0;i<oranges_count;i++)
+if(*(oranges+i)<0 && ((*(oranges+i)+b)>=s && (*(oranges+i)+b)<=t))
+count2++;
+printf("%d\n",count1);
+printf("%d",count2);
 }
 
 int main()
