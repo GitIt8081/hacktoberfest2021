@@ -5,9 +5,6 @@ Given the value of d for m apples and n oranges, determine how many apples and o
 #include <assert.h>
 #include <limits.h>
 #include <math.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,15 +12,16 @@ Given the value of d for m apples and n oranges, determine how many apples and o
 char* readline();
 char** split_string(char*);
 
-// Complete the countApplesAndOranges function below.
+
+
 void countApplesAndOranges(int s, int t, int a, int b, int apples_count, int* apples, int oranges_count, int* oranges) {
 int count1=0,count2=0;
 for(int i=0;i<apples_count;i++)
 if(*(apples+i)>0 && ((*(apples+i)+a)>=s && (*(apples+i)+a)<=t))
-count1++;
+count1+=1;
 for(int i=0;i<oranges_count;i++)
 if(*(oranges+i)<0 && ((*(oranges+i)+b)>=s && (*(oranges+i)+b)<=t))
-count2++;
+count2+=1;
 printf("%d\n",count1);
 printf("%d",count2);
 }
